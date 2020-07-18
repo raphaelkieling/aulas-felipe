@@ -4,3 +4,5 @@
  * -- Hoisting
  * -- Function é uma variável?
  */
+
+const variable = 2;
