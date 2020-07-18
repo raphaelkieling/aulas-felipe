@@ -4,6 +4,7 @@
  * -- Hoisting
  * -- Function é uma variável?
  */
+
 const procuraCep = {
   ativo: true,
 };
@@ -15,4 +16,13 @@ if (procuraCep.ativo) {
   cepName = "Capão da canoa";
 }
 
-console.log(cep, cepName);
+// -- Function é uma variável?
+const pessoa = {
+  nome: "Felipe",
+};
+
+const pegaNomeEmMaisculo = () => {
+  console.log(pessoa.nome.toUpperCase());
+};
+
+pegaNomeEmMaisculo();
