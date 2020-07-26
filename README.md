@@ -37,7 +37,7 @@ Ou seja vai imprimir uma de cada vez, `usb`, `jarra` e `caneca`
 > Dica: https://stackoverflow.com/questions/5602427/javascript-for-loop-callback Como usar callbacks com loops
 
 
-### Aula04 `/aula04``
+### Aula04 `/aula04`
 
 #### Desafio
 
