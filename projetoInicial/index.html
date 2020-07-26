@@ -12,9 +12,34 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <h1>Projeto inicial</h1>
-      <input type="text" class="form-control" />
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">Todolist</a>
+    </nav>
+
+    <div class="container mt-3">
+      <div class="d-flex">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="O que você precisa fazer"
+        />
+        <button class="ml-2 btn btn-primary">Adicionar</button>
+      </div>
+
+      <div class="mt-3">
+        <div class="d-flex flex-column justify-content-center align-items-center card py-3">
+          <img src="https://image.flaticon.com/icons/svg/3203/3203812.svg" width="100px">
+          <p class="mt-2">Pode colocar o cérebro pra descansar, você terminou tudo que tinha para fazer.</p>
+        </div>
+
+        <ul class="list-group mt-3">
+          <li
+            class="list-group-item "
+          >
+            Fazer panqueca <span class="badge badge-secondary">Cozinha</span></h3>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
