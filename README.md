@@ -43,6 +43,8 @@ Ou seja vai imprimir uma de cada vez, `usb`, `jarra` e `caneca`
 
 Todos exercícios são utilizando esse array: https://jsonplaceholder.typicode.com/todos
 
+> Dica: lembrando que pra ti usar é só copiar tudo ali da página e colocar em um array normal do js. Algo como: const listagem = ...(tudoAliDaPágina)
+
 1 - Usar `map` para criar uma lista apenas com os `title`
 
 2 - Usar o `filter` para criar uma lista apenas com as tarefas completas
