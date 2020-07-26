@@ -44,9 +44,13 @@ Ou seja vai imprimir uma de cada vez, `usb`, `jarra` e `caneca`
 Todos exercícios são utilizando esse array: https://jsonplaceholder.typicode.com/todos
 
 1 - Usar `map` para criar uma lista apenas com os `title`
+
 2 - Usar o `filter` para criar uma lista apenas com as tarefas completas
+
 3 - Usar `filter` para pegar apenas as tarefas completas e por fim usar `map` para retornar apenas os `title`
+
 4 - Usar o `reduce` para somar quantas tarefas existem
+
 5 - Usar o `reduce` para somar quantas tarefas COMPLETAS existem
 
 #### Desafio Final
