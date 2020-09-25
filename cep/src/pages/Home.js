@@ -1,5 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
+import CepInformation from "../components/CepInformation";
+import Container from "../components/Container";
 import { Header } from "../components/Header";
+import Loading from "../components/Loading";
+import SearchBox from "../components/SearchBox";
 
 export function Home() {
   /**
@@ -9,9 +13,12 @@ export function Home() {
    */
 
   // Aqui nós definimos o valor
-  const [cepValue, setCepValue] = useState("");
-  const [localidade, setLocalidade] = useState("")
-  const [uf, setUf] = useState("")
+  const [cepValue, setCepValue] = useState("123231231");
+  const [localidade, setLocalidade] = useState("");
+  const [uf, setUf] = useState("");
+
+  // Loading
+  const [loading, setLoading] = useState(false);
 
   function changeCep(evento) {
     setCepValue(evento.target.value);
@@ -20,54 +27,37 @@ export function Home() {
   function getCepInfoByCepNumber(cepNumber) {
     console.log("Fazendo consulta no serviço de CEP com o cep: " + cepNumber);
 
-    fetch(`https://viacep.com.br/ws/${cepNumber}/json/`)
-      .then(response => response.json())
-      .then(({ localidade, uf }) => {
-        setLocalidade(localidade)
-        setUf(uf)
-      })
-  }
+    setLoading(true);
 
-  // Ao criar o componente
-  useEffect(()=> {
-    getCepInfoByCepNumber("95555000")
-  })
+    fetch(`https://viacep.com.br/ws/${cepNumber}/json/`)
+      .then((response) => response.json())
+      .then(({ localidade, uf }) => {
+        setLocalidade(localidade);
+        setUf(uf);
+
+        setLoading(false);
+      });
+  }
 
   return (
     <div>
       <Header>Minha App</Header>
 
-      <div className="container mt-3">
-        Cep que estou digitando: {cepValue}
-        <div className="input-group mb-3 mt-2">
-          <input
-            value={cepValue}
-            onChange={changeCep}
-            type="text"
-            className="form-control"
-            placeholder="Digite o cep para buscar"
-          />
+      <Container>
+        <SearchBox
+          cep={cepValue}
+          setCep={setCepValue}
+          onClickBotao={() => {
+            getCepInfoByCepNumber(cepValue);
+          }}
+        />
 
-          <div className="input-group-append">
-            <button
-              className="btn btn-dark"
-              type="button"
-              onClick={function(evento){
-                getCepInfoByCepNumber(cepValue)
-              }}
-            >
-              Verificar
-            </button>
-          </div>
-        </div>
-        <div className="card mt-3">
-          <div className="card-header">Informações do cep</div>
-          <div className="card-body">
-            <strong>Localidade:</strong> {localidade}  <br />
-            <strong>UF:</strong>  {uf}
-          </div>
-        </div>
-      </div>
+        {loading ? (
+          <Loading />
+        ) : (
+          <CepInformation localidade={localidade} uf={uf} />
+        )}
+      </Container>
     </div>
   );
 }
