@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
 function SearchBox(propriedades) {
+  const [cepValue, setCepValue] = useState("123231231");
+
   return (
     <div className="input-group mb-3 mt-2">
       <input
-        value={propriedades.cep}
-        onChange={propriedades.setCep}
+        value={cepValue}
+        onChange={(evento) => setCepValue(evento.target.value)}
         type="text"
         className="form-control"
         placeholder="Digite o cep para buscar"
@@ -15,8 +17,8 @@ function SearchBox(propriedades) {
         <button
           className="btn btn-dark"
           type="button"
-          onClick={function (evento) {
-            propriedades.onClickBotao();
+          onClick={function () {
+            propriedades.onClickBotao(cepValue);
           }}
         >
           Verificar

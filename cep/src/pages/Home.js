@@ -13,16 +13,11 @@ export function Home() {
    */
 
   // Aqui nós definimos o valor
-  const [cepValue, setCepValue] = useState("123231231");
   const [localidade, setLocalidade] = useState("");
   const [uf, setUf] = useState("");
 
   // Loading
   const [loading, setLoading] = useState(false);
-
-  function changeCep(evento) {
-    setCepValue(evento.target.value);
-  }
 
   function getCepInfoByCepNumber(cepNumber) {
     console.log("Fazendo consulta no serviço de CEP com o cep: " + cepNumber);
@@ -44,13 +39,7 @@ export function Home() {
       <Header>Minha App</Header>
 
       <Container>
-        <SearchBox
-          cep={cepValue}
-          setCep={setCepValue}
-          onClickBotao={() => {
-            getCepInfoByCepNumber(cepValue);
-          }}
-        />
+        <SearchBox onClickBotao={(cep) => getCepInfoByCepNumber(cep)} />
 
         {loading ? (
           <Loading />
